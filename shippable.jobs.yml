@@ -1,0 +1,12 @@
+jobs:
+ - name: manifest
+    type: manifest
+    steps:
+      - IN: gitRepo
+      - OUT: image
+      - TASK: managed
+    on_success:
+      - script: echo 'successful manifest'
+      - NOTIFY: notification
+    on_failure:
+      - script: echo 'failed manifest'
