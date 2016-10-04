@@ -1,0 +1,20 @@
+resources:
+  - name: gitRepo
+    type: gitRepo
+    integration: git
+    pointer:
+      sourceName: "harryi3t/www"
+      branch: master
+    flags:
+      - gitRepo
+
+  - name: image
+    type: image
+    integration: dockerhub
+    pointer:
+      sourceName: "library/busybox"
+      isPull: true
+    seed:
+      versionName: latest
+    flags:
+      - image
